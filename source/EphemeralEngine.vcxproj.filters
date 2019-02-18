@@ -8,6 +8,9 @@
     <ClCompile Include="Utils\Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="ECS\Managers\CEntityManager.cpp">
+      <Filter>ECS\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -16,6 +19,12 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{26f4d7eb-fa29-4f79-a63f-e8b3d699a0dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{2f8af601-02c2-40f5-a741-68a8038f60b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Managers">
+      <UniqueIdentifier>{e2cc72b2-b0ee-4f72-9cff-fc6642371bbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\Vector3.h">
@@ -23,6 +32,12 @@
     </ClInclude>
     <ClInclude Include="Utils\Utils.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\CEntity.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\Managers\CEntityManager.h">
+      <Filter>ECS\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
