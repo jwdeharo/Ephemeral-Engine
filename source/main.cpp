@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <string>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include "Utils/Utils.h"
+#include "ECS/Managers/CEntityManager.h"
 //Window dimensions.
 const GLint WIDTH   = 800;
 const GLint HEIGHT  = 600;
@@ -13,7 +15,13 @@ constexpr int SUCCESS = 0;
 int main()
 {
   using namespace EphemeralEngine;
-  
+  using namespace Utils;
+
+  Entities::CEntityManager* EntityManager = new Entities::CEntityManager();
+  Entities::CEntity FirstEntity = EntityManager->CreateEntity();
+  Entities::CEntity SecondEntity = EntityManager->CreateEntity();
+
+  dbg("Entity id is %s and second entity id is %s", std::to_string(FirstEntity.Id).c_str(), std::to_string(SecondEntity.Id).c_str());
   //Initialise GLFW
   if (!glfwInit())
   {
