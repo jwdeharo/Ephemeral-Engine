@@ -158,8 +158,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ECS\CComponent.cpp" />
     <ClCompile Include="ECS\CWorld.cpp" />
-    <ClCompile Include="ECS\Handlers\CEntityHandler.cpp" />
     <ClCompile Include="ECS\Managers\CEntityManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\Vector3.cpp" />

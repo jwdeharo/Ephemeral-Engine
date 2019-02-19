@@ -14,8 +14,8 @@
     <ClCompile Include="ECS\CWorld.cpp">
       <Filter>ECS</Filter>
     </ClCompile>
-    <ClCompile Include="ECS\Handlers\CEntityHandler.cpp">
-      <Filter>ECS\Handlers</Filter>
+    <ClCompile Include="ECS\CComponent.cpp">
+      <Filter>ECS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
