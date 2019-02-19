@@ -11,6 +11,9 @@
     <ClCompile Include="ECS\Managers\CEntityManager.cpp">
       <Filter>ECS\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="ECS\CWorld.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -38,6 +41,15 @@
     </ClInclude>
     <ClInclude Include="ECS\Managers\CEntityManager.h">
       <Filter>ECS\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\CComponent.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\Managers\CComponentManager.h">
+      <Filter>ECS\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\CWorld.h">
+      <Filter>ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
