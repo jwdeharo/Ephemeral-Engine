@@ -1,12 +1,20 @@
-#ifndef _CCOMPONENT_MANAGER_H
-#define _CCOMPONENT_MANAGER_H
+#ifndef _CCOMPONENT_H
+#define _CCOMPONENT_H
 
 #include <type_traits>
+#include <array>
 
 namespace EphemeralEngine
 {
   namespace Entities
   {
+
+    template<typename T>
+    struct SComponentData
+    {
+      unsigned int Size = 1;
+      std::array<T, 1024> *Data;
+    };
 
     template<typename T>
     struct CComponent
