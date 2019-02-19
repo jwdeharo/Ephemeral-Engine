@@ -10,6 +10,8 @@ namespace EphemeralEngine
   namespace Entities
   {
 
+    struct CEntityHandler;
+
     /**
     * Class that manages the world.
     */
@@ -34,7 +36,18 @@ namespace EphemeralEngine
       * Function that creates an entity.
       * @param CEntity -> Returns a new Entity.
       */
-      CEntity CreateEntity();
+      CEntityHandler CreateEntity();
+
+      /**
+      * Template functions that allows us to add a component to an entity.
+      * @param CEntity -> Entity where we want to add the component.
+      * @param T -> Component that we want to add.
+      */
+      template<typename T>
+      void AddComponent(const CEntity& aEntity, T& aComponent)
+      {
+        int j = 0;
+      }
 
     };
   }
