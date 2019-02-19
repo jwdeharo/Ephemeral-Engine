@@ -1,4 +1,5 @@
 #include "../Utils/Utils.h"
+#include "Handlers/CEntityHandler.h"
 #include "CWorld.h"
 
 namespace EphemeralEngine
@@ -15,9 +16,9 @@ namespace EphemeralEngine
       SAFE_DELETE(mpEntityManager);
     }
 
-    CEntity CWorld::CreateEntity()
+    CEntityHandler CWorld::CreateEntity()
     {
-      return mpEntityManager->CreateEntity();
+      return { this , mpEntityManager->CreateEntity() };
     }
   }
 }
