@@ -5,15 +5,24 @@
 
 #include "Utils/Utils.h"
 
-#include "ECS/CWorld.h"
+#include "ECS/Handlers/CEntityHandler.h"
 #include "ECS/CComponent.h"
 
 //Window dimensions.
-const GLint WIDTH   = 800;
-const GLint HEIGHT  = 600;
+const GLint WIDTH = 800;
+const GLint HEIGHT = 600;
 
-constexpr int ERROR   = 1;
+constexpr int ERROR = 1;
 constexpr int SUCCESS = 0;
+
+struct Transform
+{
+  float X;
+  float Y;
+  float Z;
+
+  Transform() : X(0.f), Y(0.f), Z(0.f) {};
+};
 
 int main()
 {
@@ -21,9 +30,10 @@ int main()
   using namespace Utils;
 
   Entities::CWorld* World = new Entities::CWorld();
-  Entities::CEntity FirstEntity = World->CreateEntity();
-  Entities::CEntity SecondEntity = World->CreateEntity();
-  
+  Entities::CEntityHandler Handler = World->CreateEntity();
+  Transform NewTransform;
+  Handler.AddComponent<Transform>(NewTransform);
+
   //Initialise GLFW
   if (!glfwInit())
   {
