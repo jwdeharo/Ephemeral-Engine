@@ -16,6 +16,7 @@ namespace EphemeralEngine
       * Overload of the operator ==.
       */
       friend bool operator==(const CEntity& aEntityLeft, const CEntity& aEntityRight) { return aEntityLeft.Id == aEntityRight.Id; };
+      friend bool operator<(const CEntity &l, const CEntity &r) { return l.Id < r.Id; }
     };
   }
 }
