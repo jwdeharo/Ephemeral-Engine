@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ECS\CWorld.cpp" />
+    <ClCompile Include="ECS\Handlers\CEntityHandler.cpp" />
     <ClCompile Include="ECS\Managers\CEntityManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\Vector3.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="ECS\CComponent.h" />
     <ClInclude Include="ECS\CEntity.h" />
     <ClInclude Include="ECS\CWorld.h" />
+    <ClInclude Include="ECS\Handlers\CEntityHandler.h" />
     <ClInclude Include="ECS\Managers\CComponentManager.h" />
     <ClInclude Include="ECS\Managers\CEntityManager.h" />
     <ClInclude Include="Math\Vector3.h" />
