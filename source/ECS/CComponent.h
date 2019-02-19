@@ -16,21 +16,25 @@ namespace EphemeralEngine
       std::array<T, 1024> *Data;
     };
 
-    template<typename T>
-    struct CComponent
+    struct ComponentCounter
     {
-      static unsigned int Id;
-      static unsigned int GetFamily()
+      static int Counter;
+    };
+
+    template<typename T>
+    struct SComponent
+    {
+      static  int GetFamily()
       {
-        Id++;
-        return Id;
+        static int Family = ComponentCounter::Counter++;
+        return Family;
       }
     };
 
     template<typename T>
-    unsigned int GetComponentFamily()
+    static int GetComponentFamily()
     {
-      return CComponent<typename std::remove_const<T>::type>::GetFamily();
+      return SComponent<typename std::remove_const<T>::type>::GetFamily();
     }
   }
 }
