@@ -5,6 +5,8 @@
 #include "Managers/CEntityManager.h"
 #include "CEntity.h"
 
+#include <vector>
+
 namespace EphemeralEngine
 {
   namespace Entities
@@ -19,7 +21,8 @@ namespace EphemeralEngine
     {
     private:
       CEntityManager* mpEntityManager; //!< Pointer to the entity manager.
-      
+      std::vector<CBaseComponentManager*> mComponentManagers;
+
     public:
 
       /**
@@ -46,7 +49,34 @@ namespace EphemeralEngine
       template<typename T>
       void AddComponent(const CEntity& aEntity, T& aComponent)
       {
-        int j = 0;
+        CComponentManager<T>* Manager = GetComponentManager<T>();
+        Manager->AddComponent(aEntity, aComponent);
+        std::string s = "";
+      }
+
+      template<typename T>
+      T GetComponent(const CEntity& aEntity)
+      {
+        CComponentManager<T>* Manager = GetComponentManager<T>();
+        return Manager->GetComponent(aEntity);
+      }
+
+      template<typename T>
+      CComponentManager<T>* GetComponentManager()
+      {
+        unsigned int Family = GetComponentFamily<T>();
+
+        if (Family >= mComponentManagers.size())
+        {
+          mComponentManagers.resize(Family + 1);
+        }
+
+        if (mComponentManagers[Family] == nullptr)
+        {
+          mComponentManagers[Family] = new CComponentManager<T>();
+        }
+
+        return static_cast<CComponentManager<T>*>(mComponentManagers[Family]);
       }
 
     };

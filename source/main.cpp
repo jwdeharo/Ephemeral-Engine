@@ -6,7 +6,6 @@
 #include "Utils/Utils.h"
 
 #include "ECS/Handlers/CEntityHandler.h"
-#include "ECS/CComponent.h"
 
 //Window dimensions.
 const GLint WIDTH = 800;
@@ -15,13 +14,13 @@ const GLint HEIGHT = 600;
 constexpr int ERROR = 1;
 constexpr int SUCCESS = 0;
 
-struct Transform
+struct Transform : public EphemeralEngine::Entities::SComponent<Transform>
 {
   float X;
   float Y;
   float Z;
 
-  Transform() : X(0.f), Y(0.f), Z(0.f) {};
+  Transform() : X(0.f), Y(0.f), Z(1.f) {};
 };
 
 int main()
@@ -32,7 +31,10 @@ int main()
   Entities::CWorld* World = new Entities::CWorld();
   Entities::CEntityHandler Handler = World->CreateEntity();
   Transform NewTransform;
-  Handler.AddComponent<Transform>(NewTransform);
+
+  Handler.AddComponent(NewTransform);
+
+  Transform OldTransform = Handler.GetComponent<Transform>();
 
   //Initialise GLFW
   if (!glfwInit())

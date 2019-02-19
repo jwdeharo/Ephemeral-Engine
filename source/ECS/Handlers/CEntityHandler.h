@@ -23,6 +23,12 @@ namespace EphemeralEngine
       {
         mpWorld->AddComponent<T>(mEntity, aComponent);
       }
+
+      template<typename T>
+      T GetComponent()
+      {
+        return mpWorld->GetComponent<T>(mEntity);
+      }
     };
   }
 }
