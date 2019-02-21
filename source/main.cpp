@@ -1,19 +1,41 @@
 #include <stdio.h>
+#include <string>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include "Utils/Utils.h"
-//Window dimensions.
-const GLint WIDTH   = 800;
-const GLint HEIGHT  = 600;
 
-constexpr int ERROR   = 1;
+#include "ECS/Handlers/CEntityHandler.h"
+
+//Window dimensions.
+const GLint WIDTH = 800;
+const GLint HEIGHT = 600;
+
+constexpr int ERROR = 1;
 constexpr int SUCCESS = 0;
+
+struct Transform : public EphemeralEngine::Entities::SComponent<Transform>
+{
+  float X;
+  float Y;
+  float Z;
+
+  Transform() : X(0.f), Y(0.f), Z(1.f) {};
+};
 
 int main()
 {
   using namespace EphemeralEngine;
-  
+  using namespace Utils;
+
+  Entities::CWorld* World = new Entities::CWorld();
+  Entities::CEntityHandler Handler = World->CreateEntity();
+  Transform NewTransform;
+
+  Handler.AddComponent(NewTransform);
+
+  Transform OldTransform = Handler.GetComponent<Transform>();
+
   //Initialise GLFW
   if (!glfwInit())
   {
