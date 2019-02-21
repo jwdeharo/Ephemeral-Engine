@@ -60,5 +60,8 @@
     <ClInclude Include="ECS\Handlers\CEntityHandler.h">
       <Filter>ECS\Handlers</Filter>
     </ClInclude>
+    <ClInclude Include="ECS\ISystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

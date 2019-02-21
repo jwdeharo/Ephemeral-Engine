@@ -170,6 +170,7 @@
     <ClInclude Include="ECS\CEntity.h" />
     <ClInclude Include="ECS\CWorld.h" />
     <ClInclude Include="ECS\Handlers\CEntityHandler.h" />
+    <ClInclude Include="ECS\ISystem.h" />
     <ClInclude Include="ECS\Managers\CComponentManager.h" />
     <ClInclude Include="ECS\Managers\CEntityManager.h" />
     <ClInclude Include="Math\Vector3.h" />
